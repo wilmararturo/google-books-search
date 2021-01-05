@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/license-MIT%20License-blue)
-![](https://travis-ci.com/wilmararturo/employee-directory.svg?branch=main)
+![](https://travis-ci.com/wilmararturo/google-books-search.svg?branch=main)
 
-# Employee Directory
+# Google Books Search
 
 ---
 
@@ -9,7 +9,7 @@
 
 ---
 
-An employee directory built using ReactJS.
+Search for books on the Google
 
 ## Table of Contents
 
@@ -19,15 +19,14 @@ An employee directory built using ReactJS.
 - [Contributing](#contributing)
 - [License](#license)
 
-![preview](./employeeDirectory.gif)
+![preview]()
 
 ## Usage
 
 ---
 
-- Navigate to [employee-directory](https://wilmararturo.github.io/employee-directory/).
-- Type in the search box to find users by name.
-- Click the "Name" column header to sort the employee list at any time.
+- Navigate to [google-books-search]().
+- Use the App
 
 ## Tests
 
