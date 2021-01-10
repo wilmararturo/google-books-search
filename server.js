@@ -3,7 +3,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
+const logger = require("morgan");
+
 const PORT = process.env.PORT || 3001;
+
+// logging (development)
+app.use(logger("dev"));
 
 // Configure body parsing for AJAX requests
 app.use(express.urlencoded({ extended: true }));
