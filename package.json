@@ -1,7 +1,7 @@
 {
-  "name": "react-google-books",
+  "name": "google-books-search",
   "version": "1.0.0",
-  "description": "",
+  "description": "![](https://img.shields.io/badge/license-MIT%20License-blue) ![](https://travis-ci.com/wilmararturo/google-books-search.svg?branch=main)",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -12,9 +12,17 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Wilmar Stephens",
+  "license": "MIT",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/eslint-parser": "^7.12.1",
     "concurrently": "^4.1.0",
     "nodemon": "^1.18.7"
   },
@@ -23,5 +31,13 @@
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilmararturo/google-books-search.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wilmararturo/google-books-search/issues"
+  },
+  "homepage": "https://github.com/wilmararturo/google-books-search#readme"
 }
