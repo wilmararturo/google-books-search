@@ -1,3 +1,4 @@
+![https://github.com/wilmararturo/google-books-search/pulse](https://img.shields.io/github/last-commit/wilmararturo/google-books-search.svg)
 ![](https://img.shields.io/badge/license-MIT%20License-blue)
 ![](https://travis-ci.com/wilmararturo/google-books-search.svg?branch=main)
 
