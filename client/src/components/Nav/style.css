@@ -1,3 +1,13 @@
 .navbar {
   border-radius: 0;
+  background-color: black;
+  color: white;
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.nav-link {
+  color: white;
 }
