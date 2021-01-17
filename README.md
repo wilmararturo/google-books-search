@@ -10,7 +10,7 @@
 
 ---
 
-Search for books on the Google
+Find and save books from Google Books
 
 ## Table of Contents
 
