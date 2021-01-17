@@ -1,13 +1,15 @@
 import React from "react";
+import "./style.css";
 
 function Footer() {
   return (
-    <footer>
-      <hr />
-      <p className="pull-right">
-        <i className="fab fa-github" /> Proudly built using React.js
-      </p>
-    </footer>
+    <div className="footer">
+      <footer>
+        <div className="col-lg-12 text-center">
+          <span className="text-muted"> Copywrite &copy; 2021 </span>
+        </div>
+      </footer>
+    </div>
   );
 }
 

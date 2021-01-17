@@ -1,88 +1,76 @@
-import React, { Component } from "react";
-import Jumbotron from "../components/Jumbotron";
+import React, { useEffect, useState } from "react";
+import Hero from "../components/Hero";
 import Card from "../components/Card";
 import Book from "../components/Book";
-import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
 
-class Saved extends Component {
-  state = {
-    books: [],
-  };
+function Saved() {
+  const [books, setBooks] = useState([]);
 
-  componentDidMount() {
-    this.getSavedBooks();
-  }
+  useEffect(() => {
+    getSavedBooks();
+  }, []);
 
-  getSavedBooks = () => {
+  const getSavedBooks = () => {
     API.getSavedBooks()
-      .then((res) =>
-        this.setState({
-          books: res.data,
-        })
-      )
+      .then((res) => setBooks(res.data))
       .catch((err) => console.log(err));
   };
 
-  handleBookDelete = (id) => {
+  const handleBookDelete = (id) => {
     API.deleteBook(id).then((res) => {
-      this.getSavedBooks();
+      getSavedBooks();
       return res;
     });
   };
 
-  render() {
-    return (
-      <Container>
-        <Row>
-          <Col size="md-12">
-            <Jumbotron>
-              <h1 className="text-center">
-                <strong>(React) Google Books Search</strong>
-              </h1>
-              <h2 className="text-center">
-                Search for and Save Books of Interest.
-              </h2>
-            </Jumbotron>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-12">
-            <Card title="Saved Books" icon="download">
-              {this.state.books.length ? (
-                <List>
-                  {this.state.books.map((book) => (
-                    <Book
-                      key={book._id}
-                      title={book.title}
-                      subtitle={book.subtitle}
-                      link={book.link}
-                      authors={book.authors.join(", ")}
-                      description={book.description}
-                      image={book.image}
-                      Button={() => (
-                        <button
-                          onClick={() => this.handleBookDelete(book._id)}
-                          className="btn btn-danger ml-2"
-                        >
-                          Delete
-                        </button>
-                      )}
-                    />
-                  ))}
-                </List>
-              ) : (
-                <h2 className="text-center">No Saved Books</h2>
-              )}
-            </Card>
-          </Col>
-        </Row>
-        <Footer />
-      </Container>
-    );
-  }
+  return (
+    <Container>
+      <Row>
+        <Col size="md-12">
+          <Hero>
+            <h1 className="text-center">
+              <strong>Google Books Search</strong>
+            </h1>
+            <h2 className="text-center">Find and Save Books of Interest.</h2>
+          </Hero>
+        </Col>
+      </Row>
+      <Row>
+        <Col size="md-12">
+          <Card title="Saved Books" icon="download">
+            {books.length ? (
+              <List>
+                {books.map((book) => (
+                  <Book
+                    key={book._id}
+                    title={book.title}
+                    subtitle={book.subtitle}
+                    link={book.link}
+                    authors={book.authors.join(", ")}
+                    description={book.description}
+                    image={book.image}
+                    Button={() => (
+                      <button
+                        onClick={() => handleBookDelete(book._id)}
+                        className="btn btn-danger ml-2"
+                      >
+                        Delete
+                      </button>
+                    )}
+                  />
+                ))}
+              </List>
+            ) : (
+              <h2 className="text-center">No Books Saved...</h2>
+            )}
+          </Card>
+        </Col>
+      </Row>
+    </Container>
+  );
 }
 
 export default Saved;
